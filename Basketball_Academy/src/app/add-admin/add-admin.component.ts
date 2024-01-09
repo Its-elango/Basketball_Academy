@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class AddAdminComponent {
 
   successMessage: boolean = false;
+  failureMessage: boolean = false;
 
   Add_Admin: FormGroup;
 
@@ -64,16 +65,20 @@ export class AddAdminComponent {
 
       this.httpClient.post(url, this.Add_Admin.value, { responseType: 'text' })
         .subscribe((result) => {
-          this.successMessage = true;
-          this.Add_Admin.reset();
-        },
-        );
+          if (result === '1') {
+            this.successMessage = true;
+            this.failureMessage = false
+            this.Add_Admin.reset();
+          }
+          else if (result === '0') {
+            this.successMessage = false;
+            this.failureMessage = true;
 
+          }
+        })
     }
 
+
   }
-
-
-
 
 }

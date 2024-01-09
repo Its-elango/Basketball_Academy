@@ -2,9 +2,12 @@
 
     <h2 class="text-center " id="head">Admin Registration</h2>
 
-    <div *ngIf="successMessage" class="text-center display-4 text-success">Admin added successfully.</div>
-
+ 
     <form [formGroup]="Add_Admin" (ngSubmit)="AddAdmin()">
+        <h2 *ngIf="successMessage" class="text-center  text-success">Admin added successfully.</h2>
+
+        <h2 *ngIf="failureMessage" class="text-center  text-danger">Email ID already exists,try with another one</h2>
+    
         <div id="Event">
             <div class="form-horizontal mx-5" id="EventForm">
 

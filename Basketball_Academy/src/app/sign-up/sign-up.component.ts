@@ -66,6 +66,7 @@ export class SignUpComponent {
         }
         else if(result=='0')
         {
+          this.successMessage = false;
           this.failiureMessage = true;
         }   
          
