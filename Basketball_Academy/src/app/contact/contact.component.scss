@@ -1,0 +1,26 @@
+
+/* Styles for an element with the ID 'address' */
+#address {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    line-height: 2;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.example-full-width {
+    width: 100%;}
+
+.mat-form-field {
+    border: 1px solid #000; 
+    border-radius: 4px; 
+}
+
+
+.mat-form-field-wrapper {
+    padding: 8px;
+}
+
+

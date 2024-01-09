@@ -1,0 +1,173 @@
+<div class="enrollForm">
+
+    <h1 class="text-center my-3">Enroll form</h1>
+
+<h2 *ngIf="enrollMessage" class="text-center text-success">Course Enrolled successfully...</h2>
+
+<h2 *ngIf="noCoachMessage" class="text-center  text-danger">Coach not available</h2>
+
+<h2 *ngIf="existplayerMessage" class="text-center  text-danger">You already enrolled course..</h2>
+
+
+<form [formGroup]="enrollForm" class="form-horizontal row m-4" (ngSubmit)="EnrollForm($event)" id="EnrollForm">
+
+    <div class="col-md-4 ">
+        <div class="form-group" style="display: none;">
+            <label for="id" class="control-label" >Id</label>
+            <div class="col-md-10">
+                <input type="text" id="id" formControlName="id" [value]="id" class="form-control" readonly>
+                <span class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="FullName" class="control-label ">Name</label>
+            <div class="col-md-10">
+                <input type="text" id="FullName" formControlName="FullName" class="form-control">                
+            </div>
+            <div *ngIf="fullName && fullName.invalid && fullName.touched" class="text-danger">
+                Enter valid name
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="date" class="control-label ">Date of birth</label>
+            <div class="col-md-10">
+                <input type="date" id="date" formControlName="DateOfBirth" (change)="calculateAge()" class="form-control" >             
+            </div>
+            <div *ngIf="date && date.invalid && date.touched" class="text-danger">
+                Select your date of birth
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Age" class="control-label ">Age</label>
+            <div class="col-md-10">
+                <input type="text" id="Age" formControlName="Age" class="form-control" >
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            <label for="Gender" class="control-label">Gender</label>
+            <label class="radio-inline">
+                <input type="radio" formControlName="Gender" value="Male" id="genderMale" >
+                Male
+            </label>
+            <label class="radio-inline">
+                <input type="radio" formControlName="Gender" value="Female" id="genderFemale"
+                   > Female
+            </label>
+            <label class="radio-inline">
+                <input type="radio" formControlName="Gender" value="Other" id="genderOther"
+                  > Other
+            </label><br />
+            <div *ngIf="Gender && Gender.invalid && Gender.touched" class="text-danger">
+                Select your gender
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="phone" class="control-label ">Phone number</label>
+            <div class="col-md-10">
+                <input type="tel" id="phone" formControlName="PhoneNumber" class="form-control">
+            </div>
+            <div *ngIf="PhoneNumber && PhoneNumber.invalid && PhoneNumber.touched" class="text-danger">
+               Enter valid phone number
+            </div>
+        </div>
+
+        <div class="form-group" style="display: none;">
+            <label for="email" class="control-label">Email</label>
+            <div class="col-md-10">
+                <input type="email" id="email" formControlName="email"  [value]="email" class="form-control">
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="month" class="control-label ">Choose months</label>
+            <div class="col-md-10">
+                <select id="month" formControlName="ChooseMonths" class="form-control" >
+                    <option value="0">---Select---</option>
+                    <option value="3 month- ₹3000">3 month- ₹3000</option>
+                    <option value="6 month- ₹6000">6 month- ₹6000</option>
+                    <option value="9 month- ₹9000">9 month- ₹9000</option>
+                </select>
+            </div>
+            <div *ngIf="ChooseMonths && ChooseMonths.invalid && ChooseMonths.touched" class="text-danger">
+                Choose your preferred months for training
+            </div>
+        </div>
+
+        <div class="form-group" style="display: none;" >
+            <label for="Coach" class="control-label col-md-2" >Coach</label>
+            <div class="col-md-10">
+                <input type="text" id="Coach"  [value]="Coach" class="form-control">
+            </div>
+            
+        </div>
+
+        <div class="form-group" style="display: none;">
+            <label for="CoachID" class="control-label col-md-2">CoachID</label>
+            <div class="col-md-10">
+                <input type="text" id="CoachID"  [value]="Coachid" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pgname" class="control-label">Parent/Guardian Name</label>
+            <div class="col-md-10">
+                <input type="text" id="pgname" formControlName="ParentGuardianName" class="form-control" >
+
+            </div>
+            <div *ngIf="ParentGuardianName && ParentGuardianName.invalid && ParentGuardianName.touched" class="text-danger">
+                Enter valid name
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pgphone" class="control-label ">Parent/Guardian Phone</label>
+            <div class="col-md-10">
+                <input type="tel" id="pgphone" formControlName="ParentGuardianPhone" class="form-control">
+            </div>
+            <div *ngIf="ParentGuardianPhone && ParentGuardianPhone.invalid && ParentGuardianPhone.touched" class="text-danger">
+                Enter valid phone number
+            </div>
+        </div>
+
+        <div class="form-group my-3">
+            <label class="control-label ">Payment</label>
+            <div class="col-md-10">
+                <label class="radio-inline">
+                    <input type="radio" id="paymentcard" formControlName="payment" value="Credit card/Debit card"
+                       > Credit card/Debit card
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="paymentupi" formControlName="payment" value="UPI"> UPI
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="paymentpaypal" formControlName="payment" value="Paypal"> Paypal
+                </label><br>
+            </div>
+            <div *ngIf="payment && payment.invalid && payment.touched" class="text-danger">
+                Select your payment menthod
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="file" class="control-label">Photo</label>
+            <div class="col-md-10">
+                <input type="hidden" id="photo" formControlName="photo">
+                <input type="file" id="file" (change)="onFileChange($event)" name="file" accept=".jpg, .jpeg, .png">
+            </div>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <div class="text-center my-3">
+            <input type="submit" [disabled]="!enrollForm.valid" value="Enroll" class="btn btn-success" />
+        </div>
+    </div>
+</form>
+</div>

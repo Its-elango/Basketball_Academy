@@ -1,0 +1,40 @@
+
+nav ul {
+    list-style: none;
+    display: flex;
+    text-align: left;
+
+}
+
+nav {
+    background-color: darkmagenta;
+    cursor: pointer;
+}
+
+#navbarSupportedContent {
+    justify-content: end;
+}
+
+
+nav ul li,
+nav a {
+    text-align: left;
+}
+
+
+nav ul li:last-child {
+    margin-right: 10px;
+}
+
+
+.nav-link {
+    font-size: 17px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: orangered;
+}

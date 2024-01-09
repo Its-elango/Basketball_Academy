@@ -1,0 +1,148 @@
+<div class="addcoach">
+    <form [formGroup]="UpdateCoach" (ngSubmit)="updateCoach()">
+
+        <div class="mx-5 row" id="EnrollForm">
+    
+            <h2 class="text-center my-3" id="head">Update coach profile</h2>
+    
+            <h3 *ngIf="successMessage" class="text-center  text-success">Profile updated successfully.</h3>
+    
+    
+            <div id="side" class="col-md-6">
+                <div class="col-md-6" style="display: none;">
+                    <label for="id">Id</label>
+                    <input type="text" id="id" class="form-control" readonly formControlName="id" [value]="id" >
+                </div>
+    
+                <div class="form-group">
+                    <label for="FullName" class="control-label">Name</label>
+                    <div class="col-md-6">
+                        <input type="text" id="FullName" formControlName="FullName" class="form-control" [value]="FullName">
+                        <div *ngIf="fullName && fullName.invalid && fullName.touched" class="text-danger">
+                            Name is required
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="date" class="control-label">Date of birth</label>
+                    <div class="col-md-6">
+                        <input type="date" id="date" formControlName="DateOfBirth" class="form-control" (change)="calculateAge()" >
+                        <div *ngIf="date && date.invalid && date.touched" class="text-danger" >
+                            Date is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age" class="control-label">Age</label>
+                    <div class="col-md-6">
+                        <input type="text" id="age" formControlName="age" class="form-control" readonly>
+                        <div *ngIf="age && age.invalid && age.touched" class="text-danger">
+                            Age is required
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group my-3">
+                    <label for="Gender" class="control-label">Gender</label>
+                    <label class="radio-inline">
+                        <input type="radio" formControlName="Gender" value="Male" id="genderMale" > Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" formControlName="Gender" value="Female" id="genderFemale" >
+                        Female
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" formControlName="Gender" value="Other" id="genderOther" >
+                        Other
+                    </label><br />
+                    <div *ngIf="Gender && Gender.invalid && Gender.touched" class="text-danger">
+                        Gender is required
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="Address" class="control-label">Address</label>
+                    <div class="col-md-6">
+                        <input type="text" id="Address" formControlName="Address" class="form-control">
+                        <div *ngIf="Address && Address.invalid && Address.touched" class="text-danger">
+                            Address is required
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="PhoneNumber" class="control-label">Phone number</label>
+                    <div class="col-md-6">
+                        <input type="text" id="PhoneNumber" formControlName="PhoneNumber" class="form-control" >
+                        <div *ngIf="PhoneNumber && PhoneNumber.invalid && PhoneNumber.touched" class="text-danger">
+                            Enter valid phone number
+                        </div>
+                    </div>
+                </div>
+      
+            </div>
+    
+            <div id="main" class="col-md-6">
+                <div class="">
+                    <label for="email" class="control-label">Email</label>
+                    <div class="col-md-6">
+                        <input type="text" id="email" formControlName="email" class="form-control" [value]="email" readonly>
+    
+                    </div>
+                </div>
+    
+                <div class="">
+                    <label for="experience" class="control-label">Experience</label>
+                    <div class="col-md-6">
+                        <input type="text" id="experience" formControlName="experience" class="form-control">
+                        <div *ngIf="experience && experience.invalid && experience.touched" class="text-danger">
+                            Enter valid experience
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="">
+                    <label for="PrimarySkill" class="control-label">Primary skill</label>
+                    <div class="col-md-6">
+                        <input type="text" id="PrimarySkill" formControlName="PrimarySkill" class="form-control" >
+                        <div *ngIf="PrimarySkill && PrimarySkill.invalid && PrimarySkill.touched" class="text-danger">
+                            Enter valid Primaryskill
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="my-3">
+                    <label for="photo" class="control-label">Photo</label>
+                    <div class="col-md-6">
+                        <input type="hidden"  formControlName="photo">
+                        <input type="file" id="file"  (change)="onPhotoChange($event)" accept=".jpg,.jpeg,.png">
+                    </div>
+                </div>
+    
+                <div class="">
+                    <label for="idproof" class="control-label">Upload ID proof</label>
+                    <div class="col-md-6">
+                        <input type="hidden" formControlName="idproof">
+                        <input type="file" id="file1" (change)="onIdChange($event)"  accept=".pdf">
+                    </div>
+                </div>
+    
+                <div class="my-2">
+                    <label for="CertificateProof" class="control-label">Upload certificate</label>
+                    <div class="col-md-6">
+                        <input type="hidden"  formControlName="CertificateProof">
+                        <input type="file" id="file2" (change)="onFileChange($event)"  accept=".pdf">
+                    </div>
+                </div>
+    
+            </div>
+            <div class="form-group">
+                <div class="col-12 text-center my-3">
+                    <button type="submit" [disabled]="!UpdateCoach.valid" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

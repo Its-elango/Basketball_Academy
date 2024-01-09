@@ -1,0 +1,76 @@
+<div class="addadmin">
+
+    <h2 class="text-center " id="head">Admin Registration</h2>
+
+    <div *ngIf="successMessage" class="text-center display-4 text-success">Admin added successfully.</div>
+
+    <form [formGroup]="Add_Admin" (ngSubmit)="AddAdmin()">
+        <div id="Event">
+            <div class="form-horizontal mx-5" id="EventForm">
+
+                <div class="form-group">
+                    <label for="fullName" class="control-label">Name</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="fullName" name="fullName" class="form-control"
+                            placeholder="Enter full name" />
+                        <div *ngIf="fullName && fullName.invalid && fullName.touched" class="text-danger">
+                            Name is required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="control-label">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" formControlName="email" name="email" class="form-control"
+                            placeholder="Enter email address" />
+                        <div *ngIf="email && email.invalid && email.touched" class="text-danger">
+                            Enter valid email
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="control-label">Username</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="username" name="username" class="form-control"
+                            placeholder="Enter username" />
+                        <div *ngIf="username && username.invalid && username.touched" class="text-danger">
+                            Enter valid username
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="control-label">Password</label>
+                    <div class="col-md-10">
+                        <input type="password" formControlName="password" name="password" class="form-control" placeholder="Enter password" />
+                        <div *ngIf="password && password.invalid && password.touched" class="text-danger">
+                            Enter a valid password
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" class="control-label">Confirm Password:</label>
+                    <div class="col-md-10">
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Confirm your password" />
+                        <div *ngIf="Add_Admin?.errors?.['mismatch']&& Add_Admin?.touched" class="text-danger">
+                            Passwords must be the same
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                <div class="form-group">
+                    <div class="">
+                        <input type="submit" [disabled]="!Add_Admin.valid" value="Register" class="btn btn-outline-success m-3" />
+                        <button (click)="navigateToAllAdmin()" class="btn btn-outline-primary">Back to List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

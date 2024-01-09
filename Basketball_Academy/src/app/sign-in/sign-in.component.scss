@@ -1,0 +1,26 @@
+.center-form {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin
+{
+    background-image: url('/assets/image/home - copy.jpg'); 
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+
+
+

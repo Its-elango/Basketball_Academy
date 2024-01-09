@@ -1,0 +1,73 @@
+<div class="addcoach">
+    <form [formGroup]="addCoach" (ngSubmit)="AddCoach()">
+        
+        <div id="Event">
+            <div class="form-horizontal col-md-12 my-3" id="EventForm">
+                <h4 class="text-center" id="head">Coach registration</h4>
+
+                <h4 *ngIf="successMessage" class="text-center  text-success">Coach added successfully.</h4>
+
+                <h5 *ngIf="failiureMessage" class="text-center text-danger">"Email ID already exist,try with another one".</h5>
+
+                
+                <div class="form-group">
+                    <label for="FullName" class="control-label ">Name</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="FullName" name="FullName" class="form-control"  placeholder="Enter your  name" />
+                    </div>
+                    <div *ngIf="FullName && FullName.invalid && FullName.touched" class="text-danger">
+                        Enter valid Name
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="control-label ">Username</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="username" name="username" class="form-control"  placeholder="Enter  username" />
+                    </div>
+                    <div *ngIf="username && username.invalid && username.touched" class="text-danger">
+                        Enter valid username
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="Email" class="control-label ">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" formControlName="email" name="email" class="form-control"  placeholder="Enter your email " />
+                        <span id="emailError"></span>
+                    </div>
+                    <div *ngIf="email && email.invalid && email.touched" class="text-danger">
+                        Enter valid email
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Password" class="control-label ">Password</label>
+                    <div class="col-md-10">
+                        <input type="password" formControlName="password" name="password" class="form-control"  placeholder="Enter a password" />
+                    </div>
+                    <div *ngIf="password && password.invalid && password.touched" class="text-danger">
+                        Enter strong password
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="control-label ">Confirm password</label>
+                    <div class="col-md-10">
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control"  placeholder="Confirm your password" />
+                    </div>
+                    <div *ngIf="addCoach?.errors?.['mismatch']&& addCoach?.touched" class="text-danger">
+                        Passwords must be the same
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class=" my-3">
+                        <input type="submit" [disabled]="!addCoach.valid" value="Add coach" class="btn btn-success mx-3" />
+                        <button (click)="navigateToAllCoach()" class="btn btn-primary">Back to List</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="card-deck m-3">
+        <div  *ngFor="let message of messages">
+            <div class="card col-md-4">
+                <div class="card-header">
+                    <h5 class="card-title">{{ message.name }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><strong>Phone:</strong> {{ message.phone }}</p>
+                    <p class="card-text"><strong>Email:</strong> {{ message.email }}</p>
+                    <p class="card-text"><strong>Feedback:</strong> {{ message.message }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-danger" (click)="deleteMessage(message.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

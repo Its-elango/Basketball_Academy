@@ -1,0 +1,120 @@
+<div class="playerUpdate">
+    <form [formGroup]="PlayerUpdate" class="row mx-4 my-3" (ngSubmit)="playerUpdate()" id="EnrollForm">
+
+        <div>
+            <h3 *ngIf="successMessage" class="text-center  text-success">Profile updated successfully.</h3>
+    
+        </div>
+        <h4 class="text-center"> Update your profile</h4>
+    
+    
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group" style="display: none;">
+                <label for="Id" class="control-label col-md-2">ID</label>
+                <div class="col-md-10">
+                    <input type="text" id="Id" formControlName="id" class="form-control" [value]="id" readonly>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="FullName" class="control-label">Name</label>
+                <div class="col-md-6">
+                    <input type="text" id="FullName" formControlName="FullName"  class="form-control">
+    
+                </div>
+                <div *ngIf="fullName && fullName.invalid && fullName.touched" class="text-danger">
+                    Enter valid name
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DateOfBirth" class="control-label">Date of birth</label>
+                <div class="col-md-6">
+                    <input type="date" id="date" formControlName="DateOfBirth" (change)="calculateAge()" class="form-control">
+    
+                </div>
+
+                <div *ngIf="date && date.invalid && date.touched" class="text-danger">
+                    Select your date of birth
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="Age" class="control-label">Age</label>
+                <div class="col-md-6">
+                    <input type="text" id="age" formControlName="Age" class="form-control">
+    
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label class="control-label my-3">Gender</label>
+                <label class="radio-inline">
+                    <input type="radio" id="GenderMale" value="Male" formControlName="Gender" class=""> Male
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="GenderFemale" value="Female" formControlName="Gender" class=""> Female
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" id="GenderOther" value="Other" formControlName="Gender" class=""> Other
+                </label>
+                <div *ngIf="Gender && Gender.invalid && Gender.touched" class="text-danger">
+                    Select your gender
+                </div>
+    
+            </div>
+    
+          
+        </div>
+    
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="PhoneNumber" class="control-label">Phone number</label>
+                <div class="col-md-6">
+                    <input type="text" id="phone" formControlName="PhoneNumber" class="form-control">
+                </div>
+                <div *ngIf="PhoneNumber && PhoneNumber.invalid && PhoneNumber.touched" class="text-danger">
+                    Enter valid phone number
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="ParentGuardianName" class="control-label">Parent/Guardian name</label>
+                <div class="col-md-6">
+                    <input type="text" id="pgname" formControlName="ParentGuardianName" class="form-control">   
+                </div>
+                <div *ngIf="ParentGuardianName && ParentGuardianName.invalid && ParentGuardianName.touched" class="text-danger">
+                    Enter Vaild name
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="ParentGuardianPhone" class="control-label">Parent/Guardian phone</label>
+                <div class="col-md-6">
+                    <input type="text" id="pgphone" formControlName="ParentGuardianPhone" class="form-control">
+    
+                </div>
+                <div *ngIf="ParentGuardianPhone && ParentGuardianPhone.invalid && ParentGuardianPhone.touched" class="text-danger">
+                    Enter valid phone number
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="photo" class="control-label">Photo</label>
+                <div class="col-md-6">
+                    <input type="hidden" id="Hidden" formControlName="photo">
+                    <input type="file" id="file" (change)="onPhotoChange($event)" accept=".jpg,.jpeg,.png">
+                </div>
+                <div *ngIf="photo && photo.invalid && photo.touched" class="text-danger">
+                    Photo is required
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-group my-3">
+            <div class="col-12 text-center">
+                <input type="submit" [disabled]="!PlayerUpdate.valid" value="Update" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>

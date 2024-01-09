@@ -1,0 +1,127 @@
+<div class="addevent">
+
+    <form [formGroup]="events" (ngSubmit)="AddEvent()">
+
+        <div class="form-horizontal row " id="EventForm">
+            <h2 class="text-center">Add event</h2>
+
+
+            <h3 *ngIf="successMessage" class="text-center  text-success">Event added successfully.</h3>
+
+            <div class="col-md-4 my-3">
+                <div class="form-group">
+                    <label for="EventName" class="control-label">Event name</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="eventName" name="EventName" class="form-control">
+                    </div>
+                    <div *ngIf="eventName && eventName.invalid && eventName.touched" class="text-danger">
+                        Event name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="EventDate" class="control-label">Date:</label>
+                    <div class="col-md-10">
+                        <input type="date" formControlName="eventDate" id="eventDate" name="EventDate" class="form-control">
+                    </div>
+                    <div *ngIf="eventDate && eventDate.invalid && eventDate.touched" class="text-danger">
+                        Date is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="DropdownList" class="control-label">Incharge:</label>
+                    <div class="col-md-10">
+                        <select formControlName="incharge" name="Incharge" class="form-control">
+                            <option value="">--Select incharge--</option>
+                            <option *ngFor="let incharge of incharges" [value]="incharge.name">{{ incharge.name }}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="incharge && incharge.invalid && incharge.touched" class="text-danger">
+                        Incharge name is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="EventTime" class="control-label">Time:</label>
+                    <div class="col-md-10">
+                        <input type="time" formControlName="eventTime" class="form-control">
+                    </div>
+                    <div *ngIf="eventTime && eventTime.invalid && eventTime.touched" class="text-danger">
+                        Event time is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Venue" class="control-label">Venue:</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="venue" name="Venue" class="form-control">
+                    </div>
+                    <div *ngIf="venue && venue.invalid && venue.touched" class="text-danger">
+                        Venue is required
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 my-3">
+                <div class="form-group">
+                    <label for="Details" class="control-label">Details:</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="details" name="Details" class="form-control">
+                    </div>
+                    <div *ngIf="details && details.invalid && details.touched" class="text-danger">
+                        Details is required
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label my-3 ageGroup">Age Group:</label>
+                    <input type="checkbox" name="AgeGroup" value="Under 12" (change)="handleCheckboxSelection()"> Under 12
+                    <input type="checkbox" name="AgeGroup" value="12 to 18" (change)="handleCheckboxSelection()"> 12 to 18
+                </div>
+                <div *ngIf="ageGroup && ageGroup.invalid && ageGroup.touched" class="text-danger">
+                    Select age group
+                </div>
+                <input type="hidden" id="SelectedAgeGroups" value="">
+
+                <div class="form-group">
+                    <label for="PrizeDetails" class="control-label">Prize Details:</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="prizeDetails" name="PrizeDetails" class="form-control">
+                    </div>
+                    <div *ngIf="prizeDetails && prizeDetails.invalid && prizeDetails.touched" class="text-danger">
+                        Prize Detail is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Contact" class="control-label">Contact:</label>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="contact" name="Contact" class="form-control">
+                    </div>
+                    <div *ngIf="contact && contact.invalid && contact.touched" class="text-danger">
+                        Enter valid contact number
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="EventImage" class="control-label">Event poster</label>
+                    <div class="col-md-10">
+                        <input type="hidden" formControlName="eventImage" id="eventImage" name="eventImage">
+                        <input type="file" (change)="onPhotoChange($event)" id="file">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="form-group text-center my-3">
+                <div class="col-md-12">
+                    <input type="submit" [disabled]="!events.valid" value="Add event" class="btn btn-success mx-2">
+                    <a (click)="navigateToAllEvents()" class="btn btn-primary">Back to List</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</div>

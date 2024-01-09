@@ -1,0 +1,38 @@
+
+
+<h2 class="text-center my-3">Admission list</h2>
+<div class="table-responsive">
+<table class="table table-bordered  table-striped-columns">
+    <tr class="text-center">
+        <th>Name</th>
+        <th>Date of birth</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Number</th>
+        <th>Email</th>
+        <th>Months</th>
+        <th>Coach</th>
+        <th>Parent/Guardian name</th>
+        <th>Parent/Guardian phone</th>
+        <th><b>Action</b></th>
+    </tr>
+    <tbody class="text-center">
+        <tr *ngFor="let player of players">
+            <td>{{ player.fullName }}</td>
+            <td>{{ player.dateOfBirth }}</td>
+            <td>{{ player.age }}</td>       
+            <td>{{ player.gender }}</td>
+            <td>{{ player.phoneNumber }}</td>
+            <td>{{ player.email }}</td>
+            <td>{{ player.chooseMonths }} </td>
+            <td>{{ player.coach }}</td>
+            <td>{{ player.parentGuardianName }}</td>
+            <td>{{ player.parentGuardianPhone }} </td>
+            <td>
+                <button (click)="deletePlayer(player.id)" class="btn btn-outline-danger">Delete</button>
+            </td>
+              
+        </tr>
+    </tbody>
+</table>
+</div>

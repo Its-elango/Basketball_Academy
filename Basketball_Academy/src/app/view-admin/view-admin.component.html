@@ -1,0 +1,32 @@
+
+<h2 class="text-center">Admins</h2>
+<p>
+    <button (click)="navigateToAddAdmin()" class="btn btn-outline-primary">
+        <i class="fa-solid fa-user-plus"></i>Add admin
+    </button>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="text-center">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>
+                    <h6><b>Action</b></h6>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let admin of admins"> 
+                <td>{{ admin.fullName }}</td>
+                <td>{{ admin.email }}</td>
+                <td>{{ admin.username }}</td>
+                <td>
+                    <button (click)="deleteAdmin(admin.id)" class="btn btn-outline-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

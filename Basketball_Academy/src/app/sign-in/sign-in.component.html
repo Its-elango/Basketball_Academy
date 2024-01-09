@@ -1,0 +1,53 @@
+<div class="signin">
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="mt-5">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <!-- <img src="~/Content/image/trans2.png" height="700" width="700" /> -->
+            </div>
+
+            <div class="center-form my-5 col-md-6 col-sm-12">
+                <div class="form-container">
+                    <h2 class="text-center my-3" id="head">Sign in</h2>
+
+                    <h6 *ngIf="failureMessage" class="text-center text-danger">Invalid credientials</h6>
+
+                    <div class="form-group">
+                        <label for="username" class="control-label">Username</label>
+                        <input type="text" id="username" formControlName="username" class="form-control"
+                            placeholder="Enter your username">
+                        <div *ngIf="Username && Username.invalid && Username.touched" class="text-danger">
+                            Enter valid username
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" id="password" formControlName="password" class="form-control"
+                            placeholder="Enter your password">
+                        <div *ngIf="Password && Password.invalid && Password.touched" class="text-danger">
+                            Enter valid password
+                        </div>
+
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mx-5 my-3"> Sign in </button>
+                    </div>
+
+
+
+                    <p class="text-center">
+                        Forgot password? <a routerLink="/forget_password">Click here</a>
+                    </p>
+
+                    <p class="text-center">
+                        Not a member? <a routerLink="/signup">Sign up</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
