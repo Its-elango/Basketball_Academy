@@ -35,7 +35,7 @@ export class CoachUpdateComponent implements OnInit {
   ngOnInit(): void {
 
     const today = new Date().toISOString().split('T')[0];
-  document.getElementById('date')?.setAttribute('max', today);
+   document.getElementById('date')?.setAttribute('max', today);
   
     this.FullName = this.authService.getUserName();
     this.email = this.authService.getEmail();
@@ -185,9 +185,5 @@ export class CoachUpdateComponent implements OnInit {
     } else {
       console.error('Date of birth is null or undefined.');
     }
-
-
-  
-
 }
 }

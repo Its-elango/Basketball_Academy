@@ -10,9 +10,9 @@ import { AuthServiceService } from '../auth-service.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
-
+  hide = true;
   failureMessage: boolean = false;
-
+ 
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -20,14 +20,14 @@ export class SignInComponent {
   ) { }
 
   loginForm = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.email]),
+    username:new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z\\d@$!%*#?&]{8,}$')]),
   });
 
-  get Username(){
+  get username(){
     return this.loginForm.get('username');
   }
-  get Password(){
+  get password(){
     return this.loginForm.get('password');
   }
 

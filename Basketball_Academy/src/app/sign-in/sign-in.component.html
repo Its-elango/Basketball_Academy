@@ -11,26 +11,28 @@
                 <div class="form-container">
                     <h2 class="text-center my-3" id="head">Sign in</h2>
 
-                    <h6 *ngIf="failureMessage" class="text-center text-danger">Invalid credientials</h6>
+                    <h5 *ngIf="failureMessage" class="text-center text-danger">Invalid credientials</h5>
 
-                    <div class="form-group">
-                        <label for="username" class="control-label">Username</label>
-                        <input type="text" id="username" formControlName="username" class="form-control"
-                            placeholder="Enter your username">
-                        <div *ngIf="Username && Username.invalid && Username.touched" class="text-danger">
-                            Enter valid username
-                        </div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Username </mat-label>
+                        <input matInput type="text" formControlName="username">
+                    </mat-form-field>
 
+                    <div *ngIf="username && username.invalid && username.touched" class="text-danger">
+                        Valid username is required
                     </div>
 
-                    <div class="form-group">
-                        <label for="password" class="control-label">Password</label>
-                        <input type="password" id="password" formControlName="password" class="form-control"
-                            placeholder="Enter your password">
-                        <div *ngIf="Password && Password.invalid && Password.touched" class="text-danger">
-                            Enter valid password
-                        </div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
 
+                    <div *ngIf="password && password.invalid && password.touched" class="text-danger">
+                        Valid password is required
                     </div>
 
                     <div class="text-center">

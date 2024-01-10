@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { Router,CanActivate } from '@angular/router';
 
@@ -67,6 +68,7 @@ export class AuthServiceService {
     this.email="";
     this.router.navigate(['signin']);
     sessionStorage.clear(); 
+
 
   }
 }

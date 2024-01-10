@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrl: './sign-up.component.scss'
 })
 export class SignUpComponent {
+  hide = true;
+  
   successMessage: boolean = false;
   failiureMessage:boolean=false;
 

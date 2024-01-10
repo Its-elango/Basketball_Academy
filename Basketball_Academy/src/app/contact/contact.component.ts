@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contact',
@@ -9,10 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactComponent {
 
-  successMessage:boolean=false;
-  failureMessage:boolean=false;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private _snackBar: MatSnackBar) { }
+
+  openSnackBar() {
+    this._snackBar.open('Message sent', 'Close');
+  }
+
 
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]+$')]),
@@ -42,12 +46,11 @@ export class ContactComponent {
        (Response)=>
        {
          console.log(Response);
-         this.successMessage=true;
-         this.failureMessage=false;
+       
          this.contactForm.reset();
        }
       )
-      this.failureMessage=true;
+     
        this.contactForm.reset();
     }
   }

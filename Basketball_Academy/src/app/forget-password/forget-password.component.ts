@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './forget-password.component.scss'
 })
 export class ForgetPasswordComponent {
-
+  hide = true;
   
   successMessage: boolean = false;
   changepwd: FormGroup;

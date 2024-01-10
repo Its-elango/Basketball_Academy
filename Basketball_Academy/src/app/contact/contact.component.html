@@ -1,53 +1,52 @@
 <div class="container my-3">
-    <h2 class="text-center my-3" id="head">Contact us</h2>
+    <h1 class="text-center display-6 my-3" id="head">Contact us</h1>
     <div class="row">
-
         <div class="col-md-6 col-sm-12" id="address">
-
-            <h3 class="fw-bold my-3" id="head"> Share your thoughts...</h3>
-
-            <h5 *ngIf="successMessage" class="text-center  text-success">Message sent successfully.</h5>
-
-
+            <h5 class="fw-bold my-3" id="head"> Share your thoughts...</h5>
             <form [formGroup]="contactForm" (ngSubmit)="sendMsg()">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" formControlName="name" />
-                </div>
-                <div *ngIf="name && name.invalid && name.touched" class="text-danger">
-                    Enter valid name
-                </div>
 
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" formControlName="email" />
-
+                    <mat-form-field class="example-full-width mt-5">
+                        <mat-label>Name </mat-label>
+                        <input matInput type="text" formControlName="name">
+                    </mat-form-field>
+                    <div *ngIf="name && name.invalid && name.touched" class="text-danger">
+                        Enter valid name
+                    </div>
                 </div>
-                <div *ngIf="email && email.invalid && email.touched" class="text-danger">
-                    Enter valid email
-                </div>
-
                 <div class="form-group">
-                    <label for="phone">Number</label>        
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="9876543210" formControlName="phone" />
-
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email </mat-label>
+                        <input matInput type="email" formControlName="email">
+                    </mat-form-field>
+                    <div *ngIf="email && email.invalid && email.touched" class="text-danger">
+                        Enter valid email
+                    </div>
                 </div>
-                <div *ngIf="phone && phone.invalid && phone.touched" class="text-danger">
-                    Enter valid phone
-                </div>
-
                 <div class="form-group">
-                    <label for="message">Leave a comment</label>
-                    <input type="text" id="message" name="message" class="form-control" placeholder="Ex.Your website is too good..."
-                        formControlName="message" />
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Number</mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input type="tel" matInput placeholder="9876543210" formControlName="phone">
+                    </mat-form-field>
+                    <div *ngIf="phone && phone.invalid && phone.touched" class="text-danger">
+                        Enter valid phone
+                    </div>
                 </div>
-                <div *ngIf="message && message.invalid && message.touched" class="text-danger">
-                   This can't be empty
+                <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave a comment</mat-label>
+                        <input matInput placeholder="Ex. Your website is too good..." formControlName="message" />
+                    </mat-form-field>
+                    <div *ngIf="message&& message.invalid && message.touched" class="text-danger">
+                        This can't be empty
+                    </div>
                 </div>
 
-                <div class="form-group my-3">
+                <div class=" my-3">
                     <div class="text-center my-3">
-                        <button type="submit" [disabled]="!contactForm.valid" class="btn btn-outline-primary">Send</button>
+                        <button [disabled]="contactForm.invalid" (click)="openSnackBar()" mat-raised-button
+                            color="primary">Send</button>
                     </div>
                 </div>
             </form>
@@ -55,21 +54,16 @@
 
         <div class="col-md-6 col-sm-12" id="address">
             <div class="Address">
-                <h2 class="fw-bold" id="head"> Address</h2>
+                <h4 class="fw-bold" id="address-head"> Address</h4>
                 <div>
                     <p>Admin north,</p>
-                    <p>23,North east road,</p>
-                    <p>Tamilnadu,India.</p>
+                    <p>23, North east road,</p>
+                    <p>Tamilnadu, India.</p>
                 </div>
                 <div>
-                    Contact:
-                    3456789878
+                    Contact: 3456789878
                 </div>
-
             </div>
         </div>
-
-
     </div>
-
 </div>

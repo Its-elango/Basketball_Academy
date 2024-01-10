@@ -1,11 +1,10 @@
-<div class="text-center my-3">
-    <h3>Ongoing events</h3>
-  </div>
-  
+<div class="text-center  my-3">
+    <h1 id="head">Ongoing events</h1>
+</div>
   <div class="row justify-content-center">
       <div  *ngFor="let event of events" class="col-md-4 mb-4">
           <div class="card">         
-              <img [src]="event.eventImage" class="card-img-top" alt="Event Image">
+              <img [src]="event.eventImage" class="card-img-top" height="400" alt="Event Image">
               <div class="card-body">
                   <h5 class="card-title">{{event.eventName}}</h5>
                   <p class="card-text">{{event.details}}</p>
@@ -22,6 +21,6 @@
       </div>
   </div>
 
-  <h5 *ngIf="successMessage" class="text-center  text-success">Registered successfully</h5>
+  <h2 *ngIf="successMessage" class="text-center  text-success">Registered successfully</h2>
 
-  <h5 *ngIf="failureMessage" class="text-center  text-danger">You already Registered for the event.</h5>
+  <h2 *ngIf="failureMessage" class="text-center  text-danger">You already Registered for the event.</h2>

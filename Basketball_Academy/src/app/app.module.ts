@@ -48,6 +48,13 @@ import { EnrolledPlayersComponent } from './enrolled-players/enrolled-players.co
 import { EventHomeComponent } from './event-home/event-home.component';
 import { CoachListComponent } from './coach-list/coach-list.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -102,7 +109,14 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     HttpClientModule,
     CommonModule,
     RouterModule,
-    FileSaverModule
+    FileSaverModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
