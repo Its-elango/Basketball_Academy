@@ -55,6 +55,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 
 @NgModule({
@@ -98,7 +99,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     EnrolledPlayersComponent,
     EventHomeComponent,
     CoachListComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    EventEditComponent
   ],
   imports: [
     BrowserModule,

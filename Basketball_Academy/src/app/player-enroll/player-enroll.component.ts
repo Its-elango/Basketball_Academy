@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef ,ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthServiceService } from '../auth-service.service';
 import { ActivatedRoute } from '@angular/router';
-
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-player-enroll',
@@ -11,6 +12,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./player-enroll.component.scss']
 })
 export class PlayerEnrollComponent implements OnInit {
+
+//   title = 'html-to-pdf-angular-application';
+// public convetToPDF()
+// {
+// var data = document.getElementById('contentToConvert');
+// html2canvas(data).then(canvas => {
+
+// var imgWidth = 208;
+// var pageHeight = 295;
+// var imgHeight = canvas.height * imgWidth / canvas.width;
+// var heightLeft = imgHeight;
+
+// const contentDataURL = canvas.toDataURL('image/png')
+// let pdf = new jspdf('p', 'mm', 'a4'); 
+// var position = 0;
+// pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+// pdf.save('new-file.pdf');
+// });
+// }
+
   id!: number;
   Coachid!: number;
   email: string = "";

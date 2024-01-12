@@ -6,7 +6,7 @@
     <ng-container *ngIf="events && events.length > 0; else noEvents">
         <div *ngFor="let event of events" class="col-md-4 mb-4">
             <div class="card">
-                <img [src]="event.eventImage" class="card-img-top" alt="Event Image">
+                <img [src]="event.eventImage" class="card-img-top" height="300px" alt="Event Image">
                 <div class="card-body">
                     <h5 class="card-title">{{event.eventName}}</h5>
                     <p class="card-text">{{event.details}}</p>

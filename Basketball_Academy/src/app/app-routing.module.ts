@@ -35,6 +35,7 @@ import { PlayerLayoutComponent } from './Layout/player-layout/player-layout.comp
 import { CoachListComponent } from './coach-list/coach-list.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AuthServiceService } from './auth-service.service';
+import { EventEditComponent } from './event-edit/event-edit.component';
 
 const routes: Routes = [
   {
@@ -60,6 +61,7 @@ const routes: Routes = [
       { path: 'list_admin', component: ViewAdminComponent },
       { path: 'add_coach', component: AddCoachComponent },
       { path: 'list_coach', component: ViewCoachComponent },
+      { path: 'edit_event/:eventId', component: EventEditComponent },
       { path: 'list_enrolled', component: EnrolledPlayersComponent },
       { path: 'add_events', component: AddEventsComponent },
       { path: 'list_events', component: ViewEventsComponent },

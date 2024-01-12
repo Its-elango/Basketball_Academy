@@ -37,12 +37,12 @@
                 <td> <img [src]="event.eventImage" alt="Event Photo" height="100" width="100"></td>
 
                 <td>
-                    <button (click)="deleteEvent(event.eventID)" class="btn btn-danger m-2 "><i
-                            class="fa-solid fa-trash"></i></button>
-                    <button (click)="navigateToRegistration(event.eventID)" class="btn btn-primary "><i
+                    <button (click)="navigateToUpdateEvent(event.eventID)" class="btn btn-secondary "><i
+                            class="fa-regular fa-pen-to-square"></i></button>
+                    <button (click)="navigateToRegistration(event.eventID)" class="btn btn-primary m-2"><i
                             class="fa-solid fa-eye"></i></button>
+                    <button (click)="deleteEvent(event.eventID)" class="btn btn-danger  "><i class="fa-solid fa-trash"></i></button>
                 </td>
-    
             </tr>
         </tbody>
     </table>

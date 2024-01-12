@@ -33,7 +33,6 @@ export class SignInComponent {
 
 
   login() {
-  
     const url = 'https://localhost:7021/api/Credential/signin';
     this.httpClient.post(url, this.loginForm.value, { responseType: 'json' }).subscribe(
       (response: any) => {
@@ -54,6 +53,5 @@ export class SignInComponent {
     } else if(role === "Unknown") {
       this.failureMessage = true;
     }
-
   }
 }

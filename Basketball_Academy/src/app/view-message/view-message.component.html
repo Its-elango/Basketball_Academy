@@ -1,7 +1,9 @@
-<div class="row">
-    <div class="card-deck m-3">
-        <div  *ngFor="let message of messages">
-            <div class="card col-md-4">
+<div class="container">
+    <h2 class="text-center my-3" id="head">Feedbacks</h2>
+    <div class="row">
+
+        <div *ngFor="let message of messages" class="col-md-4 mb-4">
+            <div class="card">
                 <div class="card-header">
                     <h5 class="card-title">{{ message.name }}</h5>
                 </div>

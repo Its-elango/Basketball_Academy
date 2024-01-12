@@ -11,6 +11,8 @@ export class AuthServiceService {
     private router:Router
   ) { }
 
+  
+
   private isAuthenticated: boolean = false;
   private userName: string = '';
   private Id!: number;
@@ -30,8 +32,9 @@ export class AuthServiceService {
     sessionStorage.setItem('Id', this.Id.toString());
     sessionStorage.setItem('email', this.email);
   }
+  
   canActivate(): boolean {
-    if (this.isAuthenticated) {
+    if (this.isAuthenticated) {   
       if (this.role === 'Admin' || this.role === 'Coach' || this.role === 'Player') {
         return true;
       } else {

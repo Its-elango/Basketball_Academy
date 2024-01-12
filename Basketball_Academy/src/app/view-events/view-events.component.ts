@@ -48,8 +48,12 @@ export class ViewEventsComponent implements OnInit {
       });
   }
 
+  navigateToUpdateEvent(eventID: number) {
+    this.router.navigate(['/admin/edit_event',eventID]);
+  }
+
+
 navigateToRegistration(eventID: number) {
-  debugger;
   this.router.navigate(['/admin/list_registration', eventID]);
 }
 
